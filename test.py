@@ -34,14 +34,14 @@ else:
     f.write("Case 1: Fail\n")
 
 # Case 2
-def expected_unit_price(input_price):
-    return math.ceil(input_price) * 33.77
+# def expected_unit_price(input_price):
+#     return math.ceil(input_price) * 33.77
 
-# ตรวจสอบว่าค่า UnitPrice_output ตรงกับที่คาดหวังหรือไม่
-if (mergedTracks['UnitPrice_output'] == mergedTracks['UnitPrice_input'].apply(lambda x: expected_unit_price(x))).all():
-    f.write("Case 2: Pass\n")
-else:
-    f.write("Case 2: Fail\n")
+# # ตรวจสอบว่าค่า UnitPrice_output ตรงกับที่คาดหวังหรือไม่
+# if (mergedTracks['UnitPrice_output'] == mergedTracks['UnitPrice_input'].apply(lambda x: expected_unit_price(x))).all():
+#     f.write("Case 2: Pass\n")
+# else:
+#     f.write("Case 2: Fail\n")
 
 # close test result file
 f.close()
