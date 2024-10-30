@@ -34,8 +34,11 @@ else:
     f.write("Case 1: Fail\n")
 
 # Case 2
-mergedTracks = pd.merge(tracksInput, tracksOutput, on='TrackId', suffixes=('_input', '_output'))
-if (mergedTracks['UnitPrice_output'] - mergedTracks['UnitPrice_input'] < 2).all():
+def expected_unit_price(input_price):
+    return math.ceil(input_price) * 33.77
+
+# ตรวจสอบว่าค่า UnitPrice_output ตรงกับที่คาดหวังหรือไม่
+if (mergedTracks['UnitPrice_output'] == mergedTracks['UnitPrice_input'].apply(lambda x: expected_unit_price(x))).all():
     f.write("Case 2: Pass\n")
 else:
     f.write("Case 2: Fail\n")
@@ -43,4 +46,4 @@ else:
 # close test result file
 f.close()
 
-# Fake commit
+
